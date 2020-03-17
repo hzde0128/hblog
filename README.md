@@ -21,6 +21,11 @@ Go语言开发的个人博客系统，基于Beego框架开发。
 - [ ] 前台模块
   - [ ] 界面展示
 
+## hblog截图
+
+![登录界面](images/hblog_login.png)
+![后台界面](images/hblog_dashboard.png)
+
 ## 安装
 
 ```bash
