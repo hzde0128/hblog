@@ -1,6 +1,9 @@
 language: go
 
-sudo: false
+os:
+  - "linux"
+
+dist: "xenial"
 
 go:
   - 1.12.x

@@ -1,5 +1,7 @@
 # hblog个人博客系统
 
+[![travis-ci](https://travis-ci.com/hzde0128/hblog.svg?branch=master)](https://travis-ci.com/github/hzde0128/hblog)
+
 Go语言开发的个人博客系统，基于Beego框架开发。
 
 ## 开发计划
