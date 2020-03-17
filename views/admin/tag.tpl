@@ -19,9 +19,8 @@
         <div class="x-nav">
           <span class="layui-breadcrumb">
             <a href="">首页</a>
-            <a href="">演示</a>
             <a>
-              <cite>导航元素</cite></a>
+              <cite>标签管理</cite></a>
           </span>
           <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
             <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
@@ -31,24 +30,16 @@
                 <div class="layui-col-md12">
                     <div class="layui-card">
                         <div class="layui-card-body ">
-                            <form class="layui-form layui-col-space5">
-                                <div class="layui-inline layui-show-xs-block">
-                                    <input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                            <form class="layui-form layui-col-space5" action="/admin/tag/" method="post">
+                                <div class="layui-input-inline layui-show-xs-block">
+                                    <input class="layui-input" placeholder="标签名" name="tag_name"></div>
+                                <div class="layui-input-inline layui-show-xs-block">
+                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
                                 </div>
                             </form>
                         </div>
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','./admin-add.html',600,400)"><i class="layui-icon"></i>添加</button>
                         </div>
                         <div class="layui-card-body ">
                             <table class="layui-table layui-form">
@@ -58,31 +49,20 @@
                                     <input type="checkbox" name=""  lay-skin="primary">
                                   </th>
                                   <th>ID</th>
-                                  <th>登录名</th>
-                                  <th>手机</th>
-                                  <th>邮箱</th>
-                                  <th>角色</th>
-                                  <th>加入时间</th>
-                                  <th>状态</th>
+                                  <th>标签</th>
+                                  <th>添加时间</th>
                                   <th>操作</th>
                               </thead>
                               <tbody>
+                                {{ range .tag }}
                                 <tr>
                                   <td>
                                     <input type="checkbox" name=""  lay-skin="primary">
                                   </td>
-                                  <td>1</td>
-                                  <td>admin</td>
-                                  <td>18925139194</td>
-                                  <td>113664000@qq.com</td>
-                                  <td>超级管理员</td>
-                                  <td>2017-01-01 11:11:42</td>
-                                  <td class="td-status">
-                                    <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+                                  <td>{{ .Id }}</td>
+                                  <td>{{ .TagName }}</td>
+                                  <td>{{ .CreateAt.Format "2006-01-02 15:04:05"}}</td>
                                   <td class="td-manage">
-                                    <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
-                                      <i class="layui-icon">&#xe601;</i>
-                                    </a>
                                     <a title="编辑"  onclick="xadmin.open('编辑','admin-edit.html')" href="javascript:;">
                                       <i class="layui-icon">&#xe642;</i>
                                     </a>
@@ -91,6 +71,7 @@
                                     </a>
                                   </td>
                                 </tr>
+                                {{ end }}
                               </tbody>
                             </table>
                         </div>
@@ -101,7 +82,7 @@
                                   <a class="num" href="">1</a>
                                   <span class="current">2</span>
                                   <a class="num" href="">3</a>
-                                  <a class="num" href="">489</a>
+                                  <a class="num" href="">4</a>
                                   <a class="next" href="">&gt;&gt;</a>
                                 </div>
                             </div>

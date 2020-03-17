@@ -32,7 +32,7 @@
             </div>
             <ul class="layui-nav right" lay-filter="">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">admin</a>
+                    <a href="javascript:;">{{ .user }}</a>
                     <dl class="layui-nav-child">
                         <!-- 二级菜单 -->
                         <dd>
@@ -53,24 +53,24 @@
                 <ul id="nav">
                     <li>
                         <a onclick='xadmin.add_tab("系统信息","/admin/info")'>
-                            <i class="iconfont left-nav-li">&#xe723;</i>
+                            <i class="iconfont left-nav-li">&#xe696;</i>
                             <cite>系统信息</cite>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="文章管理">&#xe6b4;</i>
+                            <i class="iconfont left-nav-li" lay-tips="文章管理">&#xe705;</i>
                             <cite>文章管理</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
                                 <a onclick='xadmin.add_tab("文章列表","/admin/blog/")'>
-                                    <i class="iconfont">&#xe6a7;</i>
+                                    <i class="iconfont">&#xe699;</i>
                                     <cite>文章列表</cite></a>
                             </li>
                             <li>
-                                <a onclick='xadmin.add_tab("添加文章","/admin/blog/")'>
-                                    <i class="iconfont">&#xe6a7;</i>
+                                <a onclick='xadmin.add_tab("添加文章","/admin/blog/add")'>
+                                    <i class="iconfont">&#xe69e;</i>
                                     <cite>添加文章</cite></a>
                             </li>
                         </ul>
@@ -83,24 +83,24 @@
                     </li>
                     <li>
                         <a onclick="xadmin.add_tab('标签管理','/admin/tag/')">
-                            <i class="iconfont left-nav-li">&#xe6b8;</i>
-                            <cite>标签列表</cite>
+                            <i class="iconfont left-nav-li">&#xe6f4;</i>
+                            <cite>标签管理</cite>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="其它页面">&#xe6b4;</i>
+                            <i class="iconfont left-nav-li" lay-tips="系统设置">&#xe6ae;</i>
                             <cite>系统设置</cite>
-                            <i class="iconfont nav_right">&#xe697;</i></a>
+                            <i class="iconfont nav_right">&#xe6ae;</i></a>
                         <ul class="sub-menu">
                             <li>
                                 <a onclick="xadmin.add_tab('系统设置','/admin/settings')">
-                                    <i class="iconfont">&#xe6a7;</i>
+                                    <i class="iconfont">&#xe6ae;</i>
                                     <cite>系统设置</cite></a>
                             </li>
                             <li>
                                 <a onclick="xadmin.add_tab('修改密码','/admin/user')">
-                                    <i class="iconfont">&#xe6a7;</i>
+                                    <i class="iconfont">&#xe6b8;</i>
                                     <cite>修改密码</cite></a>
                             </li>
                         </ul>

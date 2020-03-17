@@ -22,40 +22,40 @@ func (m *User) TableName() string {
 	return "user"
 }
 
-func (m *User) Insert() error {
-	if _, err := orm.NewOrm().Insert(m); err != nil {
+func (u *User) Insert() error {
+	if _, err := orm.NewOrm().Insert(u); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *User) Read(fields ...string) error {
-	if err := orm.NewOrm().Read(m, fields...); err != nil {
+func (u *User) Read(fields ...string) error {
+	if err := orm.NewOrm().Read(u, fields...); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *User) Update(fields ...string) error {
-	if _, err := orm.NewOrm().Update(m, fields...); err != nil {
+func (u *User) Update(fields ...string) error {
+	if _, err := orm.NewOrm().Update(u, fields...); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *User) Delete() error {
-	if _, err := orm.NewOrm().Delete(m); err != nil {
+func (u *User) Delete() error {
+	if _, err := orm.NewOrm().Delete(u); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *User) Query() orm.QuerySeter {
-	return orm.NewOrm().QueryTable(m)
+func (u *User) Query() orm.QuerySeter {
+	return orm.NewOrm().QueryTable(u)
 }
 
-func (m *User) ReadOrCreate(field string, fields ...string) (bool, int64, error) {
-	if created, id, err := orm.NewOrm().ReadOrCreate(m, field, fields...); err != nil {
+func (u *User) ReadOrCreate(field string, fields ...string) (bool, int64, error) {
+	if created, id, err := orm.NewOrm().ReadOrCreate(u, field, fields...); err != nil {
 		return false, 0, err
 	} else {
 		return created, id, nil

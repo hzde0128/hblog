@@ -20,10 +20,10 @@
 <body class="login-bg">
     
     <div class="login layui-anim layui-anim-up">
-        <div class="message">x-admin2.0-管理登录</div>
+        <div class="message">个人博客系统-管理登录</div>
         <div id="darkbannerwrap"></div>
         
-        <form method="post" class="layui-form" action="/admin/login">
+        <form method="post" class="layui-form" action="/login">
             <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">

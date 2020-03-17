@@ -9,15 +9,17 @@ var Cfg = new(AppConf)
 
 type AppConf struct {
 	MysqlConf `ini:"mysql"`
+	Paginate  string `ini:"paginate"`
 }
 
 type MysqlConf struct {
-	Address string `ini:"address"`
-	Port int `ini:"port"`
+	Address  string `ini:"address"`
+	Port     int    `ini:"port"`
 	Username string `ini:"user"`
 	Password string `ini:"password"`
-	Dbname string `ini:"dbname"`
+	Dbname   string `ini:"dbname"`
 }
+
 // 加载配置文件
 func init() {
 	err := ini.MapTo(Cfg, "conf/app.conf")

@@ -23,7 +23,7 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <blockquote class="layui-elem-quote">欢迎管理员：
-                                <span class="x-red">admin</span>！当前时间:2020-03-17 10:50:53
+                                <span class="x-red">{{ .user }}</span>！当前时间:2020-03-17 10:50:53
                             </blockquote>
                         </div>
                     </div>
