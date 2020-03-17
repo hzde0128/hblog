@@ -20,19 +20,16 @@
                                 <tbody>
                                     <tr>
                                         <th>软件版本</th>
-                                        <td>v0.1.2</td></tr>
+                                        <td>{{ .version }}</td></tr>
                                     <tr>
                                         <th>服务器地址</th>
                                         <td>127.0.0.1</td></tr>
                                     <tr>
-                                        <th>操作系统</th>
-                                        <td>Linux</td></tr>
-                                    <tr>
                                         <th>运行环境</th>
-                                        <td>Go 1.14.0</td></tr>
+                                        <td>操作系统：{{ .os }} ({{ .arch }})，CPU数量：{{ .cpuNum }}</td></tr>
                                     <tr>
-                                        <th>MYSQL版本</th>
-                                        <td>5.5.53</td></tr>
+                                        <th>Go版本</th>
+                                        <td>{{ .goVer }}</td></tr>
                                     <tr>
                                         <th>上传附件限制</th>
                                         <td>2M</td></tr>

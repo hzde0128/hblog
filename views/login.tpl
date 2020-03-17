@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="stylesheet" href="/static/css/font.css">
     <link rel="stylesheet" href="/static/css/login.css">
-	  <link rel="stylesheet" href="/static/css/xadmin.css">
+    <link rel="stylesheet" href="/static/css/xadmin.css">
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
     <!--[if lt IE 9]>
@@ -24,9 +24,11 @@
         <div id="darkbannerwrap"></div>
         
         <form method="post" class="layui-form" action="/login">
-            <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+            <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" value="{{ .username }}">
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+            <hr class="hr15">
+            <input type="checkbox" name="remember" value="on" title="remember" checked="checked">记住密码
             <hr class="hr15">
             <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20" >

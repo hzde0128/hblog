@@ -15,36 +15,68 @@ type UserController struct {
 }
 
 func (c *UserController) Login() {
+	if c.Ctx.Request.Method == "GET" {
+		username := c.Ctx.GetCookie("username")
+		if username != ""{
+			c.Data["username"] = username
+		}
+		c.TplName = "login.tpl"
+	}
 
 	if c.Ctx.Request.Method == "POST" {
 		username := strings.TrimSpace(c.GetString("username"))
 		password := strings.TrimSpace(c.GetString("password"))
 
+		remember := c.GetString("remember")
+		beego.Info("记住密码: ",remember)
 		beego.Info(username, password)
 
-		user := models.User{}
-		user.UserName = username
-		data := []byte(password)
-		has := md5.Sum(data)
-		user.Password = fmt.Sprintf("%x", has)
-		err := user.Read("username", "password")
-		if err != nil {
-			beego.Info("用户名或密码错误")
-			c.Redirect("/login", http.StatusFound)
+		// 验证数据有效性
+		if username != "" && password != "" {
+			user := models.User{}
+			user.UserName = username
+			data := []byte(password)
+			has := md5.Sum(data)
+			user.Password = fmt.Sprintf("%x", has)
+			err := user.Read("username", "password")
+			if err != nil {
+				beego.Info("用户名或密码错误!")
+				//c.Redirect("/login", http.StatusFound)
+			} else {
+
+				// 更新登录次数和IP以及时间
+				user.LastIp = strings.Split(c.Ctx.Request.RemoteAddr, ":")[0]
+				user.LoginCount += 1
+				// 获取时区
+				loc, _ := time.LoadLocation("Local")
+				timeStr := time.Now().Format("2006-01-02 15:04:05")
+				//t, _ := time.Parse("2006-01-02 15:04:05", timeStr)
+				t, _ := time.ParseInLocation("2006-01-02 15:04:05",timeStr, loc)
+				user.LastLogin = t
+				user.Update()
+
+				// 验证成功，设置Cookie和Session
+				if remember == "on" {
+					c.Ctx.SetCookie("username", username, time.Second*3600)
+				} else {
+					c.Ctx.SetCookie("username", username)
+				}
+				c.SetSession("username", username)
+			}
+
+
+
+			c.Redirect("/admin/", http.StatusFound)
 		}
 
-		// 验证成功，设置Cookie和Session
-		c.Ctx.SetCookie("username", username, time.Second*3600)
-		c.SetSession("username", username)
-
-		c.Redirect("/admin/", http.StatusFound)
 	}
-	c.TplName = "login.tpl"
+
 }
 
 func (c *UserController) Logout() {
 	c.DelSession("username")
-
+	username := c.Ctx.GetCookie("username")
+	c.Ctx.SetCookie("username", username, -1)
 	c.Redirect("/", http.StatusFound)
 }
 

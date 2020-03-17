@@ -11,7 +11,7 @@ type User struct {
 	UserName   string    `orm:"unique;size(32)"`             // 用户名
 	Password   string    `orm:"size(32)"`                    // 密码
 	Email      string    `orm:"size(50)"`                    // Email
-	LastLogin  time.Time `orm:"auto_now_add;type(datetime)"` // 上次登录时间
+	LastLogin  time.Time `orm:"auto_now;type(datetime)"` // 上次登录时间
 	LoginCount int       // 登录次数
 	LastIp     string    `orm:"size(32)"` // 上次登录IP
 	Active     int8      // 激活状态
