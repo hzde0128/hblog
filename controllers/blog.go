@@ -29,7 +29,7 @@ func (c *BlogCoontroller) Get() {
 	// 获取全部文章
 	o := orm.NewOrm()
 	articles := []models.Article{}
-	_, err := o.QueryTable("article").OrderBy("-article__id","-article_create_at").RelatedSel("category").All(&articles)
+	_, err := o.QueryTable("article").OrderBy("-id").RelatedSel("category").All(&articles)
 	if err != nil {
 		beego.Info("查询失败", err)
 	}

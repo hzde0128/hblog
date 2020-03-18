@@ -15,7 +15,7 @@ func (c *MainController) Get() {
 	// 获取文章信息
 	o := orm.NewOrm()
 	articles := []models.Article{}
-	o.QueryTable("article").RelatedSel("category").All(&articles)
+	o.QueryTable("article").OrderBy("-id").RelatedSel("category").All(&articles)
 	c.Data["article"] = articles
 	c.TplName = "index.tpl"
 }
