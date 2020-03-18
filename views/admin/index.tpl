@@ -22,7 +22,7 @@
                                     <td>{{ .version }}</td></tr>
                                 <tr>
                                     <th>服务器地址</th>
-                                    <td>127.0.0.1</td></tr>
+                                    <td>{{ .ip }}</td></tr>
                                 <tr>
                                     <th>运行环境</th>
                                     <td>操作系统：{{ .os }} ({{ .arch }})，CPU数量：{{ .cpuNum }}</td></tr>

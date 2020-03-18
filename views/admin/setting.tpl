@@ -5,19 +5,19 @@
                     <div class="layui-form-item">
                         <label for="L_repass" class="layui-form-label">网站标题</label>
                         <div class="layui-input-inline">
-                            <input type="password" id="L_repass" name="oldpass" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                            <input type="text" id="L_repass" name="title" required="" lay-verify="required" autocomplete="off" class="layui-input" value="{{ .system.Title }}">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label for="L_pass" class="layui-form-label">URL设置</label>
                         <div class="layui-input-inline">
-                            <input type="password" id="L_pass" name="newpass" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                            <input type="text" id="L_pass" name="baseUrl" required="" lay-verify="required" autocomplete="off" class="layui-input" value="{{ .system.BaseUrl}}">
                             <div class="layui-form-mid layui-word-aux"></div>
                         </div>
                     <div class="layui-form-item">
                         <label for="L_repass" class="layui-form-label">版权信息</label>
                         <div class="layui-input-inline">
-                            <input type="password" id="L_repass" name="repass" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                            <input type="text" id="L_repass" name="copyright" required="" lay-verify="required" autocomplete="off" class="layui-input" value="{{ .system.CopyRight }}">
                         </div>
                     </div>
                     <div class="layui-form-item">

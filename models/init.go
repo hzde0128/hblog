@@ -14,7 +14,7 @@ func init() {
 	dsn := utils.Cfg.MysqlConf.Username + ":" + utils.Cfg.Password + "@" + "tcp(" + utils.Cfg.MysqlConf.Address + ":" + strconv.Itoa(utils.Cfg.MysqlConf.Port) + ")/" + utils.Cfg.MysqlConf.Dbname + "?charset=utf8"
 	beego.Debug(dsn)
 	orm.RegisterDataBase("default", "mysql", dsn)
-	orm.RegisterModel(new(User), new(Tag), new(Category), new(Article))
+	orm.RegisterModel(new(User), new(Tag), new(Category), new(Article), new(System))
 	orm.RunSyncdb("default", false, true)
 
 	// 初始化用户
