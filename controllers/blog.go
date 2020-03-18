@@ -15,6 +15,9 @@ type BlogCoontroller struct {
 
 // 文章列表页面
 func (c *BlogCoontroller) Get() {
+	username := c.GetSession("username")
+	c.Data["user"] = username
+
 	// 获取分类
 	//cate := models.Category{}
 	//cates := []models.Category{}
@@ -33,11 +36,15 @@ func (c *BlogCoontroller) Get() {
 	// 查询文章对应的标签
 	//o.QueryM2M()
 	c.Data["article"] = articles
+
+	c.Layout = "admin/layout.tpl"
 	c.TplName = "admin/list.tpl"
 }
 
 // 添加文章
 func (c *BlogCoontroller) Add() {
+	username := c.GetSession("username")
+	c.Data["user"] = username
 	// 获取分类
 	cate := models.Category{}
 	cates := []models.Category{}
@@ -107,5 +114,7 @@ func (c *BlogCoontroller) Add() {
 		}
 
 	}
+
+	c.Layout = "admin/layout.tpl"
 	c.TplName = "admin/article.tpl"
 }

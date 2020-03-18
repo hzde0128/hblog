@@ -12,6 +12,9 @@ type TagController struct {
 }
 
 func (c *TagController) Tag() {
+	username := c.GetSession("username")
+	c.Data["user"] = username
+
 	tag := models.Tag{}
 	tags := []models.Tag{}
 	query := tag.Query()
@@ -50,5 +53,6 @@ func (c *TagController) Tag() {
 	}
 
 	c.Data["tag"] = tags
+	c.Layout = "admin/layout.tpl"
 	c.TplName = "admin/tag.tpl"
 }

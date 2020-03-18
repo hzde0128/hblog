@@ -1,18 +1,7 @@
-{{ template "header.tpl" . }}
-    <body>
-        <div class="x-nav">
-          <span class="layui-breadcrumb">
-            <a href="">首页</a>
-            <a href="/admin/blog/">文章管理</a>
-            <a>
-              <cite>文章列表</cite></a>
-          </span>
-          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
-            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
-        </div>
+
         <div class="layui-fluid">
             <div class="layui-row layui-col-space15">
-                <div class="layui-col-md12">
+                <div class="layui-col-md10 layui-col-md-offset2">
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <form class="layui-form layui-col-space5">

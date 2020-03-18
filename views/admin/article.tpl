@@ -1,6 +1,5 @@
-{{ template "header.tpl" . }}
-    <body>
-        <div class="layui-fluid">
+
+        <div class="layui-fluid layui-col-md-offset2 layui-col-md10">
             <div class="layui-row">
                 <form class="layui-form" action="/admin/blog/add" method="post">
                     <div class="layui-form-item">

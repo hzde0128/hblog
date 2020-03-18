@@ -72,10 +72,8 @@ func (c *UserController) Logout() {
 	c.Redirect("/login", http.StatusFound)
 }
 
+// 修改密码页面
 func (c *UserController) User() {
-	if c.Ctx.Request.Method == "GET" {
-		c.TplName = "admin/user.tpl"
-	}
 
 	if c.Ctx.Request.Method == "POST" {
 		oldpass := strings.TrimSpace(c.GetString("oldpass"))
@@ -87,7 +85,9 @@ func (c *UserController) User() {
 		user.Password = fmt.Sprintf("%x", hash)
 		err := user.Read("username", "password")
 		if err != nil {
-			beego.Info("用户密码不正确", err)
+			beego.Info("旧密码不正确", err)
+			c.Data["errMsg"] = "旧密码不正确"
+			c.TplName = "admin/user.tpl"
 			return
 		}
 
@@ -95,6 +95,9 @@ func (c *UserController) User() {
 		repass := strings.TrimSpace(c.GetString("repass"))
 		if newpass != repass {
 			beego.Info("两次密码不一致")
+			c.Data["errMsg"] = "两次密码不一致"
+			c.TplName = "admin/user.tpl"
+			return
 		} else {
 
 			// 执行修改操作
@@ -112,4 +115,6 @@ func (c *UserController) User() {
 		}
 	}
 
+	c.Layout = "admin/layout.tpl"
+	c.TplName = "admin/user.tpl"
 }

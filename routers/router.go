@@ -20,6 +20,8 @@ func init() {
 	beego.Router("/admin/user", &controllers.UserController{}, "*:User")
 	// 后台首页
 	beego.Router("/admin/", &controllers.AdminController{})
+	// 系统设置
+	beego.Router("/admin/setting", &controllers.AdminController{}, "*:Setting")
 	// 文章管理
 	beego.Router("/admin/blog/", &controllers.BlogCoontroller{})
 	// 添加文章

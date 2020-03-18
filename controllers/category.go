@@ -15,6 +15,9 @@ type CategoryController struct {
 }
 
 func (c *CategoryController) Category() {
+	username := c.GetSession("username")
+	c.Data["user"] = username
+
 	cate := models.Category{}
 	cates := []models.Category{}
 	query := cate.Query()
@@ -78,5 +81,6 @@ func (c *CategoryController) Category() {
 		}
 	}
 
+	c.Layout = "admin/layout.tpl"
 	c.TplName = "admin/category.tpl"
 }
