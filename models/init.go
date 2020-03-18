@@ -20,13 +20,16 @@ func init() {
 	// 初始化用户
 	user := User{}
 	user.UserName = "admin"
-	data := []byte("admin888")
-	has := md5.Sum(data)
-	user.Password = fmt.Sprintf("%x", has)
-	_, _, err := user.ReadOrCreate("username", "password")
+	err := user.Read("username")
+	// 数据库没有则插入
 	if err != nil {
-		beego.Info("读取或创建失败,", err)
-		return
+		data := []byte("admin888")
+		has := md5.Sum(data)
+		user.Password = fmt.Sprintf("%x", has)
+		err = user.Insert()
+		if err != nil {
+			beego.Info("添加admin账号失败,错误信息：", err)
+			return
+		}
 	}
-
 }

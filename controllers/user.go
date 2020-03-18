@@ -87,6 +87,7 @@ func (c *UserController) User() {
 		if err != nil {
 			beego.Info("旧密码不正确", err)
 			c.Data["errMsg"] = "旧密码不正确"
+			c.Layout = "admin/layout.tpl"
 			c.TplName = "admin/user.tpl"
 			return
 		}
@@ -96,6 +97,7 @@ func (c *UserController) User() {
 		if newpass != repass {
 			beego.Info("两次密码不一致")
 			c.Data["errMsg"] = "两次密码不一致"
+			c.Layout = "admin/layout.tpl"
 			c.TplName = "admin/user.tpl"
 			return
 		} else {
