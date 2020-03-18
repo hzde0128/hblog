@@ -15,17 +15,17 @@ type UserController struct {
 }
 
 func (c *UserController) Login() {
-		username := c.Ctx.GetCookie("username")
-		if username != ""{
-			c.Data["username"] = username
-		}
+	username := c.Ctx.GetCookie("username")
+	if username != "" {
+		c.Data["username"] = username
+	}
 
 	if c.Ctx.Request.Method == "POST" {
 		username := strings.TrimSpace(c.GetString("username"))
 		password := strings.TrimSpace(c.GetString("password"))
 
 		remember := c.GetString("remember")
-		beego.Info("记住密码: ",remember)
+		beego.Info("记住密码: ", remember)
 		beego.Info(username, password)
 
 		// 验证数据有效性
@@ -46,7 +46,7 @@ func (c *UserController) Login() {
 				// 获取时区
 				loc, _ := time.LoadLocation("Local")
 				timeStr := time.Now().Format("2006-01-02 15:04:05")
-				t, _ := time.ParseInLocation("2006-01-02 15:04:05",timeStr, loc)
+				t, _ := time.ParseInLocation("2006-01-02 15:04:05", timeStr, loc)
 				user.LastLogin = t
 				user.Update()
 
@@ -74,7 +74,10 @@ func (c *UserController) Logout() {
 
 // 修改密码页面
 func (c *UserController) User() {
+	username := c.GetSession("username")
+	c.Data["user"] = username
 
+	c.Data["title"] = "修改密码"
 	if c.Ctx.Request.Method == "POST" {
 		oldpass := strings.TrimSpace(c.GetString("oldpass"))
 		old := []byte(oldpass)

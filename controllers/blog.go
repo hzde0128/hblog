@@ -18,6 +18,7 @@ func (c *BlogCoontroller) Get() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
+	c.Data["title"] = "文章列表"
 	// 获取分类
 	//cate := models.Category{}
 	//cates := []models.Category{}
@@ -45,6 +46,8 @@ func (c *BlogCoontroller) Get() {
 func (c *BlogCoontroller) Add() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
+
+	c.Data["title"] = "添加文章"
 	// 获取分类
 	cate := models.Category{}
 	cates := []models.Category{}

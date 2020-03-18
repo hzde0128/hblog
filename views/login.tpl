@@ -41,7 +41,7 @@
                 <hr class="hr15">
             </div>
             <div>
-                <input style="display: inline-block !important;margin-right: 5px" type="checkbox" name="remember" value="on" checked="checked">记住密码
+                <input style="display: inline-block !important;margin-right: 5px" type="checkbox" name="remember" value="on" {{ if .username }} checked="checked" {{ end }}>记住用户名
                 <hr class="hr15">
             </div>
 

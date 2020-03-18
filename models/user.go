@@ -8,9 +8,9 @@ import (
 // User 用户表结构体
 type User struct {
 	Id         int       // 自增Id
-	UserName   string    `orm:"unique;size(32)"`             // 用户名
-	Password   string    `orm:"size(32)"`                    // 密码
-	Email      string    `orm:"size(50)"`                    // Email
+	UserName   string    `orm:"unique;size(32)"`         // 用户名
+	Password   string    `orm:"size(32)"`                // 密码
+	Email      string    `orm:"size(50)"`                // Email
 	LastLogin  time.Time `orm:"auto_now;type(datetime)"` // 上次登录时间
 	LoginCount int       // 登录次数
 	LastIp     string    `orm:"size(32)"` // 上次登录IP

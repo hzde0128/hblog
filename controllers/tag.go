@@ -15,6 +15,7 @@ func (c *TagController) Tag() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
+	c.Data["title"] = "标签管理"
 	tag := models.Tag{}
 	tags := []models.Tag{}
 	query := tag.Query()

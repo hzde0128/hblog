@@ -2,7 +2,7 @@
 <html class="x-admin-sm">
 <head>
     <meta charset="UTF-8">
-    <title>个人博客系统-后台管理</title>
+    <title>{{ .title }}-个人博客系统-后台管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -30,10 +30,8 @@
             <a href="javascript:;">{{ .user }}</a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
-                <dd>
-                    <a onclick="xadmin.open('个人信息','/admin/user')">修改密码</a></dd>
-                <dd>
-                    <a href="/admin/logout">退出</a></dd>
+                <dd><a href="/admin/user">修改密码</a></dd>
+                <dd><a href="/admin/logout">退出</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item to-index">

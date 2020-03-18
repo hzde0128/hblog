@@ -18,6 +18,7 @@ func (c *CategoryController) Category() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
+	c.Data["title"] = "分类管理"
 	cate := models.Category{}
 	cates := []models.Category{}
 	query := cate.Query()
@@ -35,7 +36,7 @@ func (c *CategoryController) Category() {
 		beego.Info("查询失败,", err)
 		return
 	}
-	beego.Info("Count:",count)
+	beego.Info("Count:", count)
 
 	pageSize := 5
 	// 起始页
@@ -44,7 +45,7 @@ func (c *CategoryController) Category() {
 	pageCount := int(math.Ceil(float64(count) / float64(pageSize)))
 
 	query.Limit(pageSize, start).All(&cates)
-	beego.Info("分页信息:",utils.Cfg.Paginate )
+	beego.Info("分页信息:", utils.Cfg.Paginate)
 	c.Data["pageCount"] = pageCount
 	c.Data["page"] = page
 	c.Data["category"] = cates
