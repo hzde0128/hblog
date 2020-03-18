@@ -60,7 +60,7 @@
                     <li>
                         <div style="position: relative">
                             <i class="iconfont" style="position: absolute; left: 35px; line-height: 40px;">&#xe69e;</i>
-                            <a style="padding-left: 60px" href="/admin/blog/add">添加文章</a>
+                            <a style="padding-left: 60px" href="/admin/blog/add">发表文章</a>
                         </div>
                     </li>
                 </ul>

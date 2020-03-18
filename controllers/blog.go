@@ -29,7 +29,7 @@ func (c *BlogCoontroller) Get() {
 	// 获取全部文章
 	o := orm.NewOrm()
 	articles := []models.Article{}
-	_, err := o.QueryTable("article").RelatedSel("category").All(&articles)
+	_, err := o.QueryTable("article").OrderBy("-article__id","-article_create_at").RelatedSel("category").All(&articles)
 	if err != nil {
 		beego.Info("查询失败", err)
 	}
@@ -47,7 +47,7 @@ func (c *BlogCoontroller) Add() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
-	c.Data["title"] = "添加文章"
+	c.Data["title"] = "发表文章"
 	// 获取分类
 	cate := models.Category{}
 	cates := []models.Category{}
