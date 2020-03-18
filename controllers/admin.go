@@ -21,8 +21,3 @@ func (c *AdminController) Get() {
 
 	c.TplName = "admin/index.tpl"
 }
-
-func (c *AdminController) Info() {
-	c.Data["user"] = "admin"
-	c.TplName = "admin/info.tpl"
-}

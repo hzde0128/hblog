@@ -29,13 +29,22 @@
                 <span class="x-red">{{ .errMsg }}!</span>
                 <hr class="hr15">
             {{ end }}
+            <div style="position: relative;">
+                <i class="iconfont" style="position: absolute; line-height: 50px; right: 12px;">&#xe6b8;</i>
+                <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" value="{{ .username }}">
+                <hr class="hr15">
 
-            <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" value="{{ .username }}">
-            <hr class="hr15">
-            <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
-            <hr class="hr15">
-            <input type="checkbox" name="remember" value="on" checked="checked">记住密码
-            <hr class="hr15">
+            </div>
+            <div style="position: relative">
+                <i class="iconfont" style="position: absolute; line-height: 50px; right: 12px;">&#xe82b;</i>
+                <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+                <hr class="hr15">
+            </div>
+            <div>
+                <input style="display: inline-block !important;margin-right: 5px" type="checkbox" name="remember" value="on" checked="checked">记住密码
+                <hr class="hr15">
+            </div>
+
             <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20" >
         </form>

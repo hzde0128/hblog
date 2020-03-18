@@ -29,12 +29,6 @@
             <div id="side-nav">
                 <ul id="nav">
                     <li>
-                        <a onclick='xadmin.add_tab("系统信息","/admin/info")'>
-                            <i class="iconfont left-nav-li">&#xe696;</i>
-                            <cite>系统信息</cite>
-                        </a>
-                    </li>
-                    <li>
                         <a href="javascript:;">
                             <i class="iconfont left-nav-li" lay-tips="文章管理">&#xe705;</i>
                             <cite>文章管理</cite>
@@ -110,6 +104,56 @@
         <div class="page-content-bg"></div>
         <style id="theme_style"></style>
         <!-- 右侧主体结束 -->
+        <hr class="hr15">
+        <hr class="hr15">
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md10 layui-col-md-offset2">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <blockquote class="layui-elem-quote">欢迎管理员：
+                                <span class="x-red">{{ .user }}</span>！当前时间:2020-03-17 10:50:53
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-md10 layui-col-md-offset2">
+                    <div class="layui-card">
+                        <div class="layui-card-header">系统信息</div>
+                        <div class="layui-card-body ">
+                            <table class="layui-table">
+                                <tbody>
+                                <tr>
+                                    <th>软件版本</th>
+                                    <td>{{ .version }}</td></tr>
+                                <tr>
+                                    <th>服务器地址</th>
+                                    <td>127.0.0.1</td></tr>
+                                <tr>
+                                    <th>运行环境</th>
+                                    <td>操作系统：{{ .os }} ({{ .arch }})，CPU数量：{{ .cpuNum }}</td></tr>
+                                <tr>
+                                    <th>Go版本</th>
+                                    <td>{{ .goVer }}</td></tr>
+                                <tr>
+                                    <th>上传附件限制</th>
+                                    <td>2M</td></tr>
+                                <tr>
+                                    <th>执行时间限制</th>
+                                    <td>30s</td></tr>
+                                <tr>
+                                    <th>剩余空间</th>
+                                    <td>86015.2M</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <style id="welcome_style"></style>
+            </div>
+        </div>
+        </div>
         <!-- 中部结束 -->
     </body>
 
