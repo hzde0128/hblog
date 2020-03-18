@@ -27,9 +27,9 @@ func init() {
 	// 添加文章
 	beego.Router("/admin/blog/add", &controllers.BlogCoontroller{}, "*:Add")
 	// 分类管理
-	beego.Router("/admin/category/", &controllers.CategoryController{})
+	beego.Router("/admin/category/", &controllers.CategoryController{}, "*:Category")
 	// 标签管理
-	beego.Router("/admin/tag/", &controllers.TagController{})
+	beego.Router("/admin/tag/", &controllers.TagController{}, "*:Tag")
 }
 
 var filterFunc = func(ctx *context.Context) {

@@ -18,7 +18,10 @@
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <input class="layui-input" placeholder="标签名" name="tag_name"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
-                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
+                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>添加</button>
+                                    {{if .errMsg }}
+                                        <span class="x-red">{{ .errMsg }}!</span>
+                                    {{ end }}
                                 </div>
                             </form>
                         </div>

@@ -20,6 +20,9 @@
                                     <input class="layui-input" placeholder="分类名" name="cate_name"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
+                                    {{if .errMsg }}
+                                        <span class="x-red">{{ .errMsg }}!</span>
+                                    {{ end }}
                                 </div>
                             </form>
                         </div>
@@ -57,7 +60,7 @@
                                   </td>
                                   <td class="td-manage">
                                     <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
+                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="/admin/category/del?id={{ .Id }}" ><i class="layui-icon">&#xe640;</i>删除</button>
                                   </td>
                                 </tr>
                               {{ end }}
@@ -67,12 +70,12 @@
                         <div class="layui-card-body ">
                             <div class="page">
                                 <div>
-                                    <a class="prev" href="">&lt;&lt;</a>
-                                    <a class="num" href="">1</a>
-                                    <span class="current">2</span>
-                                    <a class="num" href="">3</a>
-                                    <a class="num" href="">489</a>
-                                    <a class="next" href="">&gt;&gt;</a></div>
+                                    <a class="pagination" href="/admin/category/">首页</a>
+                                    <a class="pagination" href="/admin/category/?page={{ .page | prepage }}">上一页 </a>
+                                    <a class="pagination" href="/admin/category/?page={{ nextpage .page .pageCount }}">下一页</a>
+                                    <a class="pagination" href="/admin/category/?page={{ .pageCount }}">末页</a>
+                                    <p>共{{ .count }}条记录/共{{ .pageCount }}页/当前{{ .page }}页</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -23,12 +23,18 @@
         <div class="message">个人博客系统-后台登录</div>
         <div id="darkbannerwrap"></div>
         
-        <form method="post" class="layui-form" action="/login">
+        <form method="post" class="layui-form">
+            {{/* 错误信息 */}}
+            {{ if .errMsg }}
+                <span class="x-red">{{ .errMsg }}!</span>
+                <hr class="hr15">
+            {{ end }}
+
             <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" value="{{ .username }}">
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
-            <input type="checkbox" name="remember" value="on" title="remember" checked="checked">记住密码
+            <input type="checkbox" name="remember" value="on" checked="checked">记住密码
             <hr class="hr15">
             <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20" >

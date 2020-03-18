@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/hzde0128/hblog/models"
+	"net/http"
 	"strconv"
 	"strings"
 )
@@ -23,13 +24,15 @@ func (c *BlogCoontroller) Get() {
 
 	// 获取全部文章
 	o := orm.NewOrm()
-	article := models.Article{}
-	_, err := o.QueryTable("article").RelatedSel("category").All(&article)
+	articles := []models.Article{}
+	_, err := o.QueryTable("article").RelatedSel("category").All(&articles)
 	if err != nil {
 		beego.Info("查询失败", err)
 	}
 
-	c.Data["article"] = article
+	// 查询文章对应的标签
+	//o.QueryM2M()
+	c.Data["article"] = articles
 	c.TplName = "admin/list.tpl"
 }
 
@@ -99,6 +102,8 @@ func (c *BlogCoontroller) Add() {
 			if err != nil {
 				beego.Info("写入失败,", err)
 			}
+			// 添加成功跳到列表页面
+			c.Redirect("/admin/blog/", http.StatusFound)
 		}
 
 	}

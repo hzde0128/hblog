@@ -41,22 +41,20 @@
                                     <th>ID</th>
                                     <th>标题</th>
                                     <th>分类</th>
-                                    <th>标签</th>
                                     <th>发布时间</th>
                                     <th>状态</th>
                                     <th>操作</th></tr>
                                 </thead>
                                 <tbody>
-
+                                {{ range .article }}
                                   <tr>
                                     <td>
                                       <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
                                     </td>
-                                    <td>Id</td>
-                                    <td>Title</td>
-                                    <td>Category.CategoryName</td>
-                                      <td>xxxx</td>
-                                    <td>CreateAt.Format "2006-01-02 15:04:05"</td>
+                                    <td>{{ .Id }}</td>
+                                    <td>{{ .Title }}</td>
+                                    <td>{{ .Category.CategoryName }}</td>
+                                    <td>{{ .CreateAt.Format "2006-01-02 15:04:05" }}</td>
                                     <td class="td-status">
                                       <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
                                     <td class="td-manage">
@@ -74,7 +72,7 @@
                                       </a>
                                     </td>
                                   </tr>
-
+                                {{ end }}
                                 </tbody>
                             </table>
                         </div>
