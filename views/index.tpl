@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-        <title>我的博客</title>
+        <title>{{ .basic.Title }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,7 +21,7 @@
                     
                     <!-- 左侧头部 -->
                     <header class="col-6 text-left">
-                        <h1>我的博客</h1>
+                        <h1>{{ .basic.Title }}</h1>
                     </header>
                     
                     <!-- Right header box -->
@@ -153,8 +153,7 @@
             
             
             <div class="footer-bottom">
-                <p class="text-center">@2020 版权所有 ZyPop.More Templates - Collect from 网页模板
-</p>
+                <p class="text-center">@2020 版权所有 <a href="{{ .basic.BaseUrl }}">{{ .basic.Title }}</a></p>
                     <p class="text-center"><a href="#">返回顶部</a></p>
             </div>
             

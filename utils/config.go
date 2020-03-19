@@ -9,8 +9,8 @@ var Cfg = new(AppConf)
 
 type AppConf struct {
 	MysqlConf `ini:"mysql"`
-	Paginate  int `ini:"paginate"`
-	Version string `ini:"version"`
+	Paginate  int    `ini:"paginate"`
+	Version   string `ini:"version"`
 }
 
 type MysqlConf struct {

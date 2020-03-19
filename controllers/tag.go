@@ -15,6 +15,12 @@ func (c *TagController) Tag() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
+
+	c.Data["basic"] = systeminfo
 	c.Data["title"] = "标签管理"
 	tag := models.Tag{}
 	tags := []models.Tag{}

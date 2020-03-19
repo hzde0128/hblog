@@ -18,6 +18,13 @@ func (c *CategoryController) Category() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
 
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
+
+	c.Data["basic"] = systeminfo
+
 	c.Data["title"] = "分类管理"
 	cate := models.Category{}
 	cates := []models.Category{}

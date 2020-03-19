@@ -32,4 +32,14 @@ func init() {
 			return
 		}
 	}
+
+	// 初始化博客信息
+	system := System{}
+	num, _ := system.Query().Count()
+	if num == 0 {
+		system.Title = "我的博客"
+		system.BaseUrl = "http://127.0.0.1:8080"
+		system.CopyRight = "版权所有 翻版必究"
+		system.Insert()
+	}
 }

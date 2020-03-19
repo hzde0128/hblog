@@ -2,7 +2,7 @@
 <html class="x-admin-sm">
 <head>
     <meta charset="UTF-8">
-    <title>{{ .title }}-个人博客系统-后台管理</title>
+    <title>{{ .title }}-{{ .basic.Title }}-后台管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -21,10 +21,7 @@
 <!-- 顶部开始 -->
 <div class="container">
     <div class="logo">
-        <a href="/admin/">个人博客管理系统</a></div>
-    <div class="left_open">
-        <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
-    </div>
+        <a href="/admin/">{{ .basic.Title }}</a></div>
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
             <a href="javascript:;">{{ .user }}</a>

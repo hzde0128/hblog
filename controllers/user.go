@@ -20,6 +20,13 @@ func (c *UserController) Login() {
 		c.Data["username"] = username
 	}
 
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
+
+	c.Data["basic"] = systeminfo
+
 	if c.Ctx.Request.Method == "POST" {
 		username := strings.TrimSpace(c.GetString("username"))
 		password := strings.TrimSpace(c.GetString("password"))
@@ -76,6 +83,13 @@ func (c *UserController) Logout() {
 func (c *UserController) User() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
+
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
+
+	c.Data["basic"] = systeminfo
 
 	c.Data["title"] = "修改密码"
 	if c.Ctx.Request.Method == "POST" {

@@ -17,7 +17,12 @@ type BlogCoontroller struct {
 func (c *BlogCoontroller) Get() {
 	username := c.GetSession("username")
 	c.Data["user"] = username
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
 
+	c.Data["basic"] = systeminfo
 	c.Data["title"] = "文章列表"
 	// 获取分类
 	//cate := models.Category{}
@@ -48,6 +53,14 @@ func (c *BlogCoontroller) Add() {
 	c.Data["user"] = username
 
 	c.Data["title"] = "发表文章"
+
+	//获取网站标题
+	system := models.System{}
+	systeminfo := models.System{}
+	system.Query().One(&systeminfo)
+
+	c.Data["basic"] = systeminfo
+
 	// 获取分类
 	cate := models.Category{}
 	cates := []models.Category{}
